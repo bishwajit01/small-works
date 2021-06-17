@@ -1,0 +1,52 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.bishwajit.vikram</groupId>
+	<artifactId>java-small-utilities</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>Small Utilities</name>
+	<description>This project is for small utilities used in the project.</description>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<gson.version>2.8.6</gson.version>
+		<java.version>1.8</java.version>
+		<apache.commons.io.version>2.6</apache.commons.io.version>
+	</properties>
+
+	<dependencies>
+	
+		<!-- GSON  -->
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>${gson.version}</version>
+		</dependency>
+		
+		<!-- APACHE COMMONS-IO -->
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>${apache.commons.io.version}</version>
+		</dependency>
+		
+	</dependencies>
+	
+	<build>  
+        <plugins>  
+            <plugin>  
+                <!-- Build an executable JAR -->  
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>  
+                <version>3.1.0</version>  
+                <configuration>  
+                    <archive>  
+                        <manifest>  
+                            <mainClass>com.bishwajit.vikram.fileManipulation.ReadingFileFromResource</mainClass>  
+                        </manifest>  
+                    </archive>  
+                </configuration>  
+            </plugin>  
+        </plugins>  
+    </build>
+</project>
