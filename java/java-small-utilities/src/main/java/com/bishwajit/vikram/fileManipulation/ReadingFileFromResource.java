@@ -11,12 +11,21 @@ import java.io.InputStreamReader;
  */
 public class ReadingFileFromResource {
 
-	public static void main(String[] args) throws IOException {
-		InputStream is = ReadingFileFromResource.class.getResourceAsStream("/config/sample-1.json");
-		BufferedReader reader = new BufferedReader(new InputStreamReader(is));
-		String line = null;
-		while ((line = reader.readLine()) != null) {
-			System.out.println(line);
+	private static final String CONFIG_FILE = "/config/sample-1.json";
+
+	public static void main(String[] args) {
+		readingFileFromResource();
+	}
+
+	private static void readingFileFromResource() {
+		try (InputStream is = ReadingFileFromResource.class.getResourceAsStream(CONFIG_FILE);
+				BufferedReader reader = new BufferedReader(new InputStreamReader(is));) {
+			String line = null;
+			while ((line = reader.readLine()) != null) {
+				System.out.println(line);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 	}
 }
