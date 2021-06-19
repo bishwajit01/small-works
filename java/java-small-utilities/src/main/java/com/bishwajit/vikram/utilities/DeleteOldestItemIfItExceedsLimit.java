@@ -12,12 +12,12 @@ import java.util.UUID;
  * @author Bishwajit
  *
  */
-public class DeleteIfItExistMoreThanLimit {
+public class DeleteOldestItemIfItExceedsLimit {
 
 	public static final int LIMIT = 2;
 
 	public static void main(String[] args) {
-		DeleteIfItExistMoreThanLimit object = new DeleteIfItExistMoreThanLimit();
+		DeleteOldestItemIfItExceedsLimit object = new DeleteOldestItemIfItExceedsLimit();
 		List<SampleA> sampleAList = object.createSampleList();
 
 		System.out.println(":::::::::Value before Deleting:::::::::::");
