@@ -8,8 +8,6 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.UUID;
 
-import com.sun.xml.internal.bind.v2.runtime.NameList;
-
 /**
  * 
  * @author Bishwajit
@@ -18,8 +16,15 @@ import com.sun.xml.internal.bind.v2.runtime.NameList;
 public class DuplicateAppendingFrequency {
 
 	public static void main(String[] args) {
-		DuplicateAppendingFrequency duplicateAppendingFrequency = new DuplicateAppendingFrequency();
-		List<Project> projectList = duplicateAppendingFrequency.prepareProjectList();
+
+		List<Project> projectList = new DuplicateAppendingFrequency().prepareProjectList();
+		
+		List<Project> duplicateProjectList = computeDuplicateFrequency(projectList);
+		
+		duplicateProjectList.stream().forEach(System.out::println);
+	}
+
+	private static List<Project> computeDuplicateFrequency(List<Project> projectList) {
 		Set<Project> sortedProjectSet = new TreeSet<>((o1, o2) -> o2.getId().compareTo(o1.getId()));
 		Map<String, List<Project>> mapDuplicates = new HashMap<>();
 		List<Project> finalProjectList = new ArrayList<>();
@@ -39,7 +44,7 @@ public class DuplicateAppendingFrequency {
 			}
 		});
 		mapDuplicates.values().stream().forEach(finalProjectList::addAll);
-		finalProjectList.stream().forEach(System.out::println);
+		return finalProjectList;
 	}
 
 	public List prepareProjectList() {
